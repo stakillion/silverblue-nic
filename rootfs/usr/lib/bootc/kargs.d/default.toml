@@ -1,0 +1,5 @@
+kargs = [
+    "rw",
+    "quiet",
+    "rhgb"
+]
