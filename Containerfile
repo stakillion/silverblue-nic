@@ -39,6 +39,9 @@ RUN rm -f /etc/dnf/protected.d/grub* /etc/dnf/protected.d/shim* && \
         neovim htop hyfetch yt-dlp && \
     dnf swap -y ffmpeg-free ffmpeg --allowerasing
 
+# Recompile glib schemas skipped by tsflags=noscripts
+RUN glib-compile-schemas /usr/share/glib-2.0/schemas/
+
 # Symlink Brave icons
 RUN for res in 16 24 32 48 64 128 256; do \
         mkdir -p /usr/share/icons/hicolor/${res}x${res}/apps && \
