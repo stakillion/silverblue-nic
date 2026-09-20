@@ -35,7 +35,7 @@ RUN rm -f /etc/dnf/protected.d/grub* /etc/dnf/protected.d/shim* && \
         libratbag-ratbagd steam-devices obs-vkcapture \
         dnscrypt-proxy tailscale \
         brave-origin waydroid distrobox \
-        nautilus-my-computer \
+        nautilus-my-computer gnome-tweaks \
         neovim htop hyfetch yt-dlp && \
     dnf swap -y ffmpeg-free ffmpeg --allowerasing
 
