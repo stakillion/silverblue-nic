@@ -61,6 +61,11 @@ RUN sed -i 's/^passwd:.*/passwd:     files altfiles/' /etc/nsswitch.conf && \
 # Enable services
 RUN systemctl enable dnscrypt-proxy.service tailscaled.service
 
+# Generate initramfs
+RUN KVER=$(ls /usr/lib/modules | head -n 1) && \
+    mkdir -p /var/roothome && \
+    env DRACUT_NO_XATTR=1 dracut --force --kver "${KVER}" "/usr/lib/modules/${KVER}/initramfs.img"
+
 # Clean up
 RUN dnf clean all && \
     rm -rf /var/lib/libvirt/* /var/lib/dnf/* /var/lib/iscsi /run/akmods /run/dnf /tmp/* /var/tmp/* /var/cache/* /var/log/*
