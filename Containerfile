@@ -12,7 +12,8 @@ RUN dnf install -y \
 
 # Enable COPR Repositories
 RUN dnf copr enable -y bazzite-org/obs-vkcapture && \
-    dnf copr enable -y yannmasoch/nautilus-my-computer
+    dnf copr enable -y yannmasoch/nautilus-my-computer && \
+    dnf copr enable -y aneagle/gnome-rounded-blur
 
 # Add Brave's official repository
 RUN curl -fsSLo /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
@@ -35,7 +36,7 @@ RUN rm -f /etc/dnf/protected.d/grub* /etc/dnf/protected.d/shim* && \
         steam-devices obs-vkcapture \
         dnscrypt-proxy tailscale \
         brave-origin waydroid distrobox \
-        nautilus-my-computer gnome-tweaks \
+        nautilus-my-computer gnome-tweaks gnome-rounded-blur \
         neovim htop hyfetch yt-dlp && \
     dnf swap -y ffmpeg-free ffmpeg --allowerasing
 
