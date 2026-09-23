@@ -32,7 +32,7 @@ RUN rm -f /etc/dnf/protected.d/grub* /etc/dnf/protected.d/shim* && \
         toolbox && \
     dnf install -y --setopt=tsflags=noscripts \
         systemd-boot-unsigned \
-        libratbag-ratbagd steam-devices obs-vkcapture \
+        steam-devices obs-vkcapture \
         dnscrypt-proxy tailscale \
         brave-origin waydroid distrobox \
         nautilus-my-computer gnome-tweaks \
